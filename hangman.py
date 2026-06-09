@@ -10,8 +10,10 @@ def does_file_exist(file):
         with open(file, 'r'):
             pass
     except FileNotFoundError:
+        log.error(f'"{file}": File Not Found!')
         return False
     except PermissionError:
+        log.error(f'"{file}": No Permission to Read File!')
         return False
     else:
         return True
